@@ -1,0 +1,6 @@
+<!--pages/Uiframe/Uiframe.wxml-->
+<view >
+    <view class="list">
+        <view class="list-item" wx:for="{{list}}" wx:key="index" bindtap="handleClick" data-appid="{{item.appid}}">{{item.name}}</view>
+    </view>
+</view>>

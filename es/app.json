@@ -1,12 +1,16 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/calculator/calculator",
+    "pages/calculator/result",
+    "pages/Interest/Interest",
+    "pages/Uiframe/Uiframe"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "R的计算器",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",

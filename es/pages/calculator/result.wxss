@@ -1,0 +1,95 @@
+.title-wrap {
+  padding-bottom: 12rpx;
+  /* border-bottom: 1px solid #f0f0f0; */
+  display: flex;
+  justify-content: center;
+}
+.title,
+.activetitle {
+  height: 110rpx;
+  line-height: 110rpx;
+  font-size: 32rpx;
+  text-align: center;
+  font-weight: 700;
+  width: 35%;
+}
+.activetitle {
+  color: #3072f6;
+  position: relative;
+}
+.activetitle::after {
+  position: absolute;
+  content: "";
+  width: 32rpx;
+  height: 6rpx;
+  border-radius: 3rpx;
+  background-color: #3072f6;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.card_wrap {
+  margin: 24rpx 48rpx;
+  padding: 56rpx 0;
+  background: url("https://img.ljcdn.com/hc-picture/9c27f73d-e512-49e6-af1f-7058fe96e519")
+    no-repeat;
+  background-size: 100%;
+  height: 286rpx;
+}
+
+.top {
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+}
+
+.top > .num {
+  font-size: 108rpx;
+  font-weight: 700;
+}
+
+.top > .num > text {
+  font-size: 28rpx;
+  font-weight: 400;
+}
+
+.card_wrap > .bottom {
+  display: flex;
+  font-size: 26rpx;
+  padding-top: 48rpx;
+  color: #fff;
+  justify-content: center;
+}
+
+.card_wrap > .bottom > .b-item {
+  width: 33.3%;
+  text-align: center;
+  border-right: 1px solid hsla(0, 0%, 100%, 0.3);
+}
+
+.card_wrap > .bottom > .total {
+  font-size: 32rpx;
+}
+
+.tips {
+    color: #222;
+    font-size: 28rpx;
+    padding: 10rpx 48rpx 40rpx 48rpx;
+}
+
+.tips > text {
+    font-weight: 700;
+    color: #3072f6;
+}
+
+.header-item, .body-item {
+    display: flex;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.header-txt {
+    width: 20%;
+    text-align: center;
+}

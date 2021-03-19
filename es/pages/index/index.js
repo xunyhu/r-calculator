@@ -1,54 +1,88 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: "Hello World",
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse("button.open-type.getUserInfo"),
+    iconList: [
+      {
+        type: "calc",
+        imgUrl: "../../assets/calc-icon.png",
+        name: "房贷计算",
+      },
+      {
+        type: "interest",
+        imgUrl: "../../assets/money-icon.png",
+        name: "复利计算",
+      },
+      {
+        type: "ui",
+        imgUrl: "../../assets/ui-icon.png",
+        name: "UI框架",
+      },
+    ],
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
-      url: '../logs/logs'
-    })
+      url: "../logs/logs",
+    });
+  },
+  handleClick({ currentTarget: { dataset } }) {
+    let url = "";
+    switch (dataset.type) {
+      case "calc":
+        url = "/pages/calculator/calculator";
+        break;
+      case "interest":
+        url = "/pages/Interest/Interest";
+        break;
+      case "ui":
+        url = "/pages/Uiframe/Uiframe";
+        break;
+      default:
+        return;
+    }
+    wx.navigateTo({ url });
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
+        hasUserInfo: true,
+      });
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
+      app.userInfoReadyCallback = (res) => {
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
+          hasUserInfo: true,
+        });
+      };
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
+        success: (res) => {
+          app.globalData.userInfo = res.userInfo;
           this.setData({
             userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+            hasUserInfo: true,
+          });
+        },
+      });
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  getUserInfo: function (e) {
+    console.log(e);
+    app.globalData.userInfo = e.detail.userInfo;
     this.setData({
       userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
-})
+      hasUserInfo: true,
+    });
+  },
+});

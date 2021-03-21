@@ -20,6 +20,16 @@ Page({
         name: "复利计算",
       },
       {
+        type: "calc",
+        imgUrl: "../../assets/calc-icon.png",
+        name: "工资计算",
+      },
+      {
+        type: "calc",
+        imgUrl: "../../assets/calc-icon.png",
+        name: "奖金计算",
+      },
+      {
         type: "ui",
         imgUrl: "../../assets/ui-icon.png",
         name: "UI框架",

@@ -22,15 +22,16 @@
 }
 
 .icon-wrap {
-  padding: 48rpx;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .icon-wrap > .icon-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 48rpx;
+  width: 25%;
+  padding-bottom: 20rpx;
 }
 
 .icon-info > .icon-img,

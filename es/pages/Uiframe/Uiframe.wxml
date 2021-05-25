@@ -1,6 +1,16 @@
 <!--pages/Uiframe/Uiframe.wxml-->
-<view >
-    <view class="list">
-        <view class="list-item" wx:for="{{list}}" wx:key="index" bindtap="handleClick" data-appid="{{item.appid}}">{{item.name}}</view>
-    </view>
-</view>>
+<view>
+  <i-panel title="小程序UI框架">
+    <i-cell-group>
+      <view
+        class="list-item"
+        wx:for="{{list}}"
+        wx:key="index"
+        bindtap="handleClick"
+        data-appid="{{item.appid}}"
+      >
+        <i-cell title="{{item.name}}" is-link></i-cell>
+      </view>
+    </i-cell-group>
+  </i-panel>
+</view>

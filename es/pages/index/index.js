@@ -12,7 +12,7 @@ Page({
       {
         type: "calc",
         imgUrl: "../../assets/calc-icon.png",
-        name: "房贷计算",
+        name: "贷款计算",
       },
       // {
       //   type: "interest",

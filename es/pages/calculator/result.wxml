@@ -1,53 +1,67 @@
 <view class="wrap">
-    <view class="title-wrap">
-        <view bindtap='handleTabs' data-type="{{index}}" class="{{index === activeIdex ? 'activetitle' : 'title'}}" wx:for="{{titleList}}" wx:key="key">
-            {{item}}
-        </view>
+  <view class="title-wrap-bg"></view>
+  <view class="title-wrap">
+    <view
+      bindtap="handleTabs"
+      data-type="{{ index }}"
+      class="{{ index === activeIdex ? 'activetitle' : 'title' }}"
+      wx:for="{{ titleList }}"
+      wx:key="key"
+    >
+      {{ item }}
     </view>
-    <view class="card_wrap">
-        <view class="top">
-            <view class="txt">每月应还</view>
-            <view class="num">
-                88999
-                <text>元</text>
-            </view>
-        </view>
-        <view class="bottom">
-            <view class="b-item">
-                <view class="item-wrap">
-                    <view class="txts">贷款总额</view>
-                    <view class="total">100万</view>
-                </view>
-            </view>
-            <view class="b-item">
-                <view class="txts">利息总额</view>
-                <view class="total">100万</view>
-            </view>
-            <view class="b-item">
-                <view class="txts">贷款年限</view>
-                <view class="total">30年</view>
-            </view>
-        </view>
+  </view>
+  <view class="card_wrap {{ activeIdex === 1 ? 'card_wrap_2' : '' }}">
+    <view class="top">
+      <view class="txt">{{ activeIdex === 0 ? '每月' : '首月' }}应还</view>
+      <view class="num">
+        {{ money }}
+        <text>元</text>
+      </view>
+      <text class="top_tips" wx:if="{{ activeIdex === 1 }}">每月递减{{ month_dec }}元</text>
     </view>
-    <view class="tips">
-        <text>每月还款金额不变</text>
-        ，其中还款的本金逐月递增，利息逐月递减。计算结果仅供参考。
-    </view>
-    <view class="list_wrap">
-        <view class="list_header">
-            <view class="header-item">
-                <view class="header-txt">期数</view>
-                <view class="header-txt">月供总额</view>
-                <view class="header-txt">月供本金</view>
-                <view class="header-txt">月供利息</view>
-                <view class="header-txt">剩余本金</view>
-            </view>
+    <view class="bottom">
+      <view class="b-item">
+        <view class="item-wrap">
+          <view class="txts">贷款总额</view>
+          <view class="total">{{ inputMoney }}万</view>
         </view>
-        <view class="list_body">
-            <view class="body-item"></view>
-            <view class="body-item"></view>
-            <view class="body-item"></view>
-            <view class="body-item"></view>
-        </view>
+      </view>
+      <view class="b-item">
+        <view class="txts">利息总额</view>
+        <view class="total">{{ interest }}万</view>
+      </view>
+      <view class="b-item">
+        <view class="txts">贷款年限</view>
+        <view class="total">{{ year }}年</view>
+      </view>
     </view>
+  </view>
+  <view class="tips" wx:if="{{ activeIdex === 1 }}">
+    <text>每月还款金额递减{{ month_dec }}元</text>
+    ，其中每月还款的本金不变，利息逐月减少。计算结果仅供参考。
+  </view>
+  <view class="tips" wx:else>
+    <text>每月还款金额不变</text>
+    ，其中还款的本金逐月递增，利息逐月递减。计算结果仅供参考。
+  </view>
+  <view class="list_wrap">
+    <view class="list_header {{ fixTop ? 'fixTop' : '' }}">
+      <view class="header-item">
+        <view class="header-txt first">期数</view>
+        <view class="header-txt">月供总额</view>
+        <view class="header-txt">月供本金</view>
+        <view class="header-txt">月供利息</view>
+        <view class="header-txt">剩余本金</view>
+      </view>
+    </view>
+    <view class="list_body" wx:for="{{ arrList }}" wx:key="key">
+      <view class="body-item first">{{ item.id }}</view>
+      <view class="body-item">{{ item.month_j }}</view>
+      <view class="body-item">{{ item.month_b }}</view>
+      <view class="body-item">{{ item.month_i }}</view>
+      <view class="body-item">{{ item.remain_m }}</view>
+    </view>
+  </view>
+  <view class="back_top" wx:if="{{ showTopIcon }}" bindtap="handleTop"></view>
 </view>

@@ -1,6 +1,6 @@
 <!-- pages/calculator/calculator.wxml -->
 <view class="calculator">
-    <view class="title-wrap">
+    <view class="title-wrap" wx:if="{{titleList.length > 1}}">
         <view bindtap='handleTabs' data-type="{{index}}" class="{{index === activeIdex ? 'activetitle' : 'title'}}" wx:for="{{titleList}}" wx:key="key">
             {{item}}
         </view>
@@ -19,11 +19,31 @@
                 </radio-group>
             </view>
         </view>
+        <block wx:if="{{radioChecked === 1}}">
+            <view class="calc-item">
+                <view class="calc-left">商品总价</view>
+                <view class="calc-right clac-money">
+                    <label class="r-input">
+                        <input type="digit" bindchange="handleInput" data-type='houseMoney' value="{{houseMoney}}"/>
+                    </label>
+                    <view class="r-text">万</view>
+                </view>
+            </view>
+            <view class="calc-item">
+                <view class="calc-left">贷款比例</view>
+                <view class="calc-right clac-money">
+                    <label class="r-input">
+                        <input type="digit" bindchange="handleInput" data-type='dkMoney' value="{{dkMoney}}"/>
+                    </label>
+                    <view class="r-text">成</view>
+                </view>
+            </view>
+        </block>
         <view class="calc-item">
             <view class="calc-left">商贷金额</view>
             <view class="calc-right clac-money">
                 <label class="r-input">
-                    <input type="number" />
+                    <input type="digit" bindchange="handleInput" value="{{inputMoney}}"/>
                 </label>
                 <view class="r-text">万</view>
             </view>
@@ -46,13 +66,22 @@
                 <view class="clac-right-icon"></view>
             </view>
         </view>
-        <view class="calc-item">
+        <view class="calc-item" wx:if="{{ selectM === 0 }}">
             <view class="calc-left">商贷利率</view>
             <view class="calc-right clac-times">
-                <picker bindchange="bindPickerChange" data-type='2' value="{{selectInt}}" range="{{interestList}}">
-                    <view class="picker">{{interestList[selectInt]['text']}}</view>
+                <picker bindchange="bindPickerChange" data-type='2' value="{{selectInt}}" range="{{interestList}}" range-key="text">
+                   <view class="picker">{{interestList[selectInt]['text']}}</view> 
                 </picker>
                 <view class="clac-right-icon"></view>
+            </view>
+        </view>
+        <view class="calc-item" wx:else>
+            <view class="calc-left">输入利率</view>
+            <view class="calc-right clac-money">
+                <label class="r-input">
+                    <input type="digit" bindchange="handleInput" data-type='lpr' value="{{lpr}}"/>
+                </label>
+                <view class="r-text">%</view>
             </view>
         </view>
     </view>

@@ -3,7 +3,6 @@
 const es6Arr = Array.from(new Array(30).keys())
   .map((item) => item + 1)
   .reverse();
-// console.log(new Array(30))
 // console.log(es6Arr);
 const es5Arr = Object.keys(Array.apply(null, { length: 30 }));
 // console.log(es5Arr) //得到一个字符串类型的数组
@@ -14,6 +13,10 @@ const es5Arr2 = Object.keys(Array.apply(null, { length: 30 })).map(function (
   return Number(Number(item) + 1) + "年";
 });
 // console.log(es5Arr2)
+
+const percentList = Array.from(new Array(10).keys())
+  .map((item) => item + 1)
+  .reverse();
 
 const TITLE_LIST = ["商业贷款", "组合贷款", "公积金贷款"];
 const TYPE_LIST = ["按LPR", "自定义", "按旧版基准利率"];
@@ -68,6 +71,8 @@ Page({
     lpr: INTEREST_LIST[4].value,
     houseMoney: "", //房屋总价
     dkMoney: 7, //贷款比例
+    percentList,
+    selectPercent: 3,
   },
 
   handleInput({ detail: { value }, target: { dataset } }) {
@@ -76,7 +81,10 @@ Page({
         value &&
           this.setData({
             houseMoney: value,
-            inputMoney: (value * (this.data.dkMoney / 10)).toFixed(2),
+            inputMoney: (
+              value *
+              ((10 - Number(this.data.selectPercent)) / 10)
+            ).toFixed(2),
           });
         break;
       case "dkMoney":
@@ -117,6 +125,11 @@ Page({
   bindPickerChange({ detail: { value }, target: { dataset } }) {
     // console.log(value, dataset);
     switch (dataset.type) {
+      case "3":
+        this.setData({
+          selectPercent: value,
+        });
+        break;
       case "2":
         const { interestList } = this.data;
         this.setData({
@@ -148,15 +161,18 @@ Page({
       });
       return;
     }
+    // wx.navigateTo({
+    //   url: "/pages/calculator/result",
+    //   success: function (res) {
+    //     res.eventChannel.emit("acceptDataFromOpenerPage", {
+    //       inputMoney,
+    //       year: yearList[selectYear],
+    //       lpr,
+    //     });
+    //   },
+    // });
     wx.navigateTo({
-      url: "/pages/calculator/result",
-      success: function (res) {
-        res.eventChannel.emit("acceptDataFromOpenerPage", {
-          inputMoney,
-          year: yearList[selectYear],
-          lpr,
-        });
-      },
+      url: `/pages/calculator/result?inputMoney=${inputMoney}&year=${yearList[selectYear]}&lpr=${lpr}`,
     });
   },
 

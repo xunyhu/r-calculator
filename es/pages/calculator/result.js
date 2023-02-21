@@ -6,22 +6,26 @@ Page({
     arrList: [],
   },
   onLoad(option) {
-    const eventChannel = this.getOpenerEventChannel();
-    const _this = this;
-    try {
-      eventChannel.on("acceptDataFromOpenerPage", function (data) {
-        // console.log(data);
-        _this.setData({ ...data });
-        wx.nextTick(() => {
-          _this.handleList();
-        });
-      });
-    } catch {
-      _this.setData({ inputMoney: 174, year: 30, lpr: 5.05 });
-      wx.nextTick(() => {
-        _this.handleList();
-      });
-    }
+    // const eventChannel = this.getOpenerEventChannel();
+    // const _this = this;
+    // try {
+    //   eventChannel.on("acceptDataFromOpenerPage", function (data) {
+    //     // console.log(data);
+    //     _this.setData({ ...data });
+    //     wx.nextTick(() => {
+    //       _this.handleList();
+    //     });
+    //   });
+    // } catch {
+    //   _this.setData({ inputMoney: 174, year: 30, lpr: 5.05 });
+    //   wx.nextTick(() => {
+    //     _this.handleList();
+    //   });
+    // }
+    // console.log(option)
+    this.setData(option, () => {
+      this.handleList();
+    });
   },
   onPageScroll(e) {
     if (e.scrollTop > 343) {

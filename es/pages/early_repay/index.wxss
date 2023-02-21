@@ -1,40 +1,7 @@
-/* pages/calculator/calculator.wxss */
-.calculator {
+/* pages/early_repay/index.wxss */
+.early {
   color: #333;
 }
-
-.title-wrap {
-  padding-bottom: 12rpx;
-  border-bottom: 1px solid #f0f0f0;
-  display: flex;
-}
-
-.title,
-.activetitle {
-  height: 110rpx;
-  line-height: 110rpx;
-  font-size: 32rpx;
-  text-align: center;
-  font-weight: 700;
-  width: 33.3%;
-}
-
-.activetitle {
-  color: #3072f6;
-  position: relative;
-}
-.activetitle::after {
-  position: absolute;
-  content: '';
-  width: 32rpx;
-  height: 6rpx;
-  border-radius: 3rpx;
-  background-color: #3072f6;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
-}
-
 .calc-item {
   height: 120rpx;
   margin: 0 48rpx;
@@ -45,7 +12,7 @@
 
 .calc-left {
   font-weight: 700;
-  width: 170rpx;
+  width: 190rpx;
   color: #222;
 }
 
@@ -68,11 +35,6 @@
   transform: scale(0.8);
 }
 
-.clac-money {
-  display: flex;
-  justify-content: space-between;
-}
-
 .clac-right-icon {
   width: 20rpx;
   height: 20rpx;
@@ -93,7 +55,7 @@
 }
 
 .calc-btn {
-  padding: 80rpx 48rpx 0;
+  padding: 45rpx 48rpx 0;
 }
 
 .calc-btn > .btns {
@@ -104,4 +66,28 @@
   color: #fff;
   background-color: #3072f6;
   border-radius: 10rpx;
+}
+
+.picker-item {
+  display: inline-block;
+  border: 1rpx solid #eee;
+  position: relative;
+  width: 150rpx;
+  text-align: center;
+  height: 55rpx;
+  line-height: 55rpx;
+}
+.picker-item .clac-right-icon {
+  width: 15rpx;
+  height: 15rpx;
+  right: 10rpx;
+  transform: translate(0, -70%) rotate(45deg);
+}
+
+.picker-mounth {
+  width: 120rpx;
+}
+
+text {
+  padding: 0 15rpx;
 }

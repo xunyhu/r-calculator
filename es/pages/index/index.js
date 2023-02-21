@@ -14,6 +14,11 @@ Page({
         imgUrl: "../../assets/calc-icon.png",
         name: "贷款计算",
       },
+      {
+        type: "early",
+        imgUrl: "../../assets/money-icon.png",
+        name: "提前还款",
+      },
       // {
       //   type: "interest",
       //   imgUrl: "../../assets/money-icon.png",
@@ -47,6 +52,9 @@ Page({
     switch (dataset.type) {
       case "calc":
         url = "/pages/calculator/calculator";
+        break;
+      case "early":
+        url = "/pages/early_repay/index";
         break;
       case "interest":
         url = "/pages/Interest/Interest";

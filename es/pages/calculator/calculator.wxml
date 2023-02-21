@@ -1,91 +1,134 @@
 <!-- pages/calculator/calculator.wxml -->
 <view class="calculator">
-    <view class="title-wrap" wx:if="{{titleList.length > 1}}">
-        <view bindtap='handleTabs' data-type="{{index}}" class="{{index === activeIdex ? 'activetitle' : 'title'}}" wx:for="{{titleList}}" wx:key="key">
-            {{item}}
-        </view>
+  <view class="title-wrap" wx:if="{{titleList.length > 1}}">
+    <view
+      bindtap="handleTabs"
+      data-type="{{index}}"
+      class="{{index === activeIdex ? 'activetitle' : 'title'}}"
+      wx:for="{{titleList}}"
+      wx:key="key"
+    >
+      {{item}}
     </view>
-    <view class="content">
-        <view class="calc-type calc-item">
-            <view class="calc-left">计算方式</view>
-            <view class="calc-right">
-                <radio-group bindchange="radioChange" class="calc-radio">
-                    <label class="radio-label" wx:for="{{radioList}}" wx:key="index">
-                        <view class="radio-cell">
-                            <radio class="radio" value="{{item.value}}" checked="{{radioChecked === item.value ? true : false}}" color="#3072f6" />
-                        </view>
-                        <view class="radio-cell">{{item.name}}</view>
-                    </label>
-                </radio-group>
+  </view>
+  <view class="content">
+    <view class="calc-type calc-item">
+      <view class="calc-left">计算方式</view>
+      <view class="calc-right">
+        <radio-group bindchange="radioChange" class="calc-radio">
+          <label class="radio-label" wx:for="{{radioList}}" wx:key="index">
+            <view class="radio-cell">
+              <radio
+                class="radio"
+                value="{{item.value}}"
+                checked="{{radioChecked === item.value ? true : false}}"
+                color="#3072f6"
+              />
             </view>
-        </view>
-        <block wx:if="{{radioChecked === 1}}">
-            <view class="calc-item">
-                <view class="calc-left">商品总价</view>
-                <view class="calc-right clac-money">
-                    <label class="r-input">
-                        <input type="digit" bindchange="handleInput" data-type='houseMoney' value="{{houseMoney}}"/>
-                    </label>
-                    <view class="r-text">万</view>
-                </view>
-            </view>
-            <view class="calc-item">
-                <view class="calc-left">贷款比例</view>
-                <view class="calc-right clac-money">
-                    <label class="r-input">
-                        <input type="digit" bindchange="handleInput" data-type='dkMoney' value="{{dkMoney}}"/>
-                    </label>
-                    <view class="r-text">成</view>
-                </view>
-            </view>
-        </block>
-        <view class="calc-item">
-            <view class="calc-left">商贷金额</view>
-            <view class="calc-right clac-money">
-                <label class="r-input">
-                    <input type="digit" bindchange="handleInput" value="{{inputMoney}}"/>
-                </label>
-                <view class="r-text">万</view>
-            </view>
-        </view>
-        <view class="calc-item">
-            <view class="calc-left">商贷年限</view>
-            <view class="calc-right clac-times">
-                <picker bindchange="bindPickerChange" data-type='0' value="{{selectYear}}" range="{{yearList}}">
-                    <view class="picker">{{yearList[selectYear]}} 年</view>
-                </picker>
-                <view class="clac-right-icon"></view>
-            </view>
-        </view>
-        <view class="calc-item">
-            <view class="calc-left">利率方式</view>
-            <view class="calc-right clac-times">
-                <picker bindchange="bindPickerChange" data-type='1' value="{{selectM}}" range="{{moneyList}}">
-                    <view class="picker">{{moneyList[selectM]}}</view>
-                </picker>
-                <view class="clac-right-icon"></view>
-            </view>
-        </view>
-        <view class="calc-item" wx:if="{{ selectM === 0 }}">
-            <view class="calc-left">商贷利率</view>
-            <view class="calc-right clac-times">
-                <picker bindchange="bindPickerChange" data-type='2' value="{{selectInt}}" range="{{interestList}}" range-key="text">
-                   <view class="picker">{{interestList[selectInt]['text']}}</view> 
-                </picker>
-                <view class="clac-right-icon"></view>
-            </view>
-        </view>
-        <view class="calc-item" wx:else>
-            <view class="calc-left">输入利率</view>
-            <view class="calc-right clac-money">
-                <label class="r-input">
-                    <input type="digit" bindchange="handleInput" data-type='lpr' value="{{lpr}}"/>
-                </label>
-                <view class="r-text">%</view>
-            </view>
-        </view>
+            <view class="radio-cell">{{item.name}}</view>
+          </label>
+        </radio-group>
+      </view>
     </view>
-    <view class="calc-btn">
-        <view class="btns" bindtap="handleCalc">开始计算</view>
+    <block wx:if="{{radioChecked === 1}}">
+      <view class="calc-item">
+        <view class="calc-left">商品总价</view>
+        <view class="calc-right clac-money">
+          <label class="r-input">
+            <input
+              type="digit"
+              bindchange="handleInput"
+              data-type="houseMoney"
+              value="{{houseMoney}}"
+            />
+          </label>
+          <view class="r-text">万</view>
+        </view>
+      </view>
+      <view class="calc-item">
+        <view class="calc-left">贷款比例</view>
+        <!-- <view class="calc-right clac-money">
+          <label class="r-input">
+            <input type="digit" bindchange="handleInput" data-type="dkMoney" value="{{dkMoney}}" />
+          </label>
+          <view class="r-text">成</view>
+        </view> -->
+        <view class="calc-right clac-times">
+          <picker
+            bindchange="bindPickerChange"
+            data-type="3"
+            value="{{selectPercent}}"
+            range="{{percentList}}"
+          >
+            <view class="picker">{{percentList[selectPercent]}}</view>
+          </picker>
+          <view class="r-text">成</view>
+        </view>
+      </view>
+    </block>
+    <view class="calc-item">
+      <view class="calc-left">商贷金额</view>
+      <view class="calc-right clac-money">
+        <label class="r-input">
+          <input type="digit" bindchange="handleInput" value="{{inputMoney}}" />
+        </label>
+        <view class="r-text">万</view>
+      </view>
     </view>
+    <view class="calc-item">
+      <view class="calc-left">商贷年限</view>
+      <view class="calc-right clac-times">
+        <picker
+          bindchange="bindPickerChange"
+          data-type="0"
+          value="{{selectYear}}"
+          range="{{yearList}}"
+        >
+          <view class="picker">{{yearList[selectYear]}} 年</view>
+        </picker>
+        <view class="clac-right-icon"></view>
+      </view>
+    </view>
+    <view class="calc-item">
+      <view class="calc-left">利率方式</view>
+      <view class="calc-right clac-times">
+        <picker
+          bindchange="bindPickerChange"
+          data-type="1"
+          value="{{selectM}}"
+          range="{{moneyList}}"
+        >
+          <view class="picker">{{moneyList[selectM]}}</view>
+        </picker>
+        <view class="clac-right-icon"></view>
+      </view>
+    </view>
+    <view class="calc-item" wx:if="{{ selectM === 0 }}">
+      <view class="calc-left">商贷利率</view>
+      <view class="calc-right clac-times">
+        <picker
+          bindchange="bindPickerChange"
+          data-type="2"
+          value="{{selectInt}}"
+          range="{{interestList}}"
+          range-key="text"
+        >
+          <view class="picker">{{interestList[selectInt]['text']}}</view>
+        </picker>
+        <view class="clac-right-icon"></view>
+      </view>
+    </view>
+    <view class="calc-item" wx:else>
+      <view class="calc-left">输入利率</view>
+      <view class="calc-right clac-money">
+        <label class="r-input">
+          <input type="digit" bindchange="handleInput" data-type="lpr" value="{{lpr}}" />
+        </label>
+        <view class="r-text">%</view>
+      </view>
+    </view>
+  </view>
+  <view class="calc-btn">
+    <view class="btns" bindtap="handleCalc">开始计算</view>
+  </view>
 </view>

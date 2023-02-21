@@ -1,7 +1,8 @@
 {
     "description": "项目配置文件",
     "packOptions": {
-        "ignore": []
+        "ignore": [],
+        "include": []
     },
     "setting": {
         "urlCheck": false,
@@ -44,45 +45,28 @@
     "libVersion": "2.16.1",
     "appid": "wxf893e098b28160f7",
     "projectname": "R%E7%9A%84%E8%AE%A1%E7%AE%97%E5%99%A8",
-    "debugOptions": {
-        "hidedInDevtools": []
-    },
-    "scripts": {},
-    "isGameTourist": false,
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
     "condition": {
-        "search": {
-            "list": []
-        },
-        "conversation": {
-            "list": []
-        },
-        "plugin": {
-            "list": []
-        },
-        "game": {
-            "list": []
-        },
-        "gamePlugin": {
-            "list": []
-        },
         "miniprogram": {
             "list": [
                 {
-                    "id": -1,
                     "name": "pages/calculator/calculator",
                     "pathName": "pages/calculator/calculator",
                     "query": "",
                     "scene": null
                 },
                 {
-                    "id": -1,
                     "name": "pages/calculator/result",
                     "pathName": "pages/calculator/result",
+                    "query": "",
                     "scene": null
                 }
             ]
         }
+    },
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
     }
 }

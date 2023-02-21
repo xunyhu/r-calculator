@@ -92,10 +92,10 @@
           class="picker-item"
           bindchange="bindPickerChange"
           data-type="0"
-          value="{{selectYear}}"
-          range="{{yearList}}"
+          value="{{fristYearIdx}}"
+          range="{{earlyYearList}}"
         >
-          <view class="picker">{{yearList[selectYear]}}</view>
+          <view class="picker">{{earlyYearList[fristYearIdx]}}</view>
           <view class="clac-right-icon"></view>
         </picker>
         <text>年</text>
@@ -103,10 +103,10 @@
           class="picker-item picker-mounth"
           bindchange="bindPickerChange"
           data-type="0"
-          value="{{selectYear}}"
-          range="{{yearList}}"
+          value="{{fristMonthIdx}}"
+          range="{{earlyMonthList}}"
         >
-          <view class="picker">{{yearList[selectYear]}}</view>
+          <view class="picker">{{earlyMonthList[fristMonthIdx]}}</view>
           <view class="clac-right-icon"></view>
         </picker>
         <text>月</text>
@@ -120,10 +120,10 @@
           class="picker-item"
           bindchange="bindPickerChange"
           data-type="0"
-          value="{{selectYear}}"
-          range="{{yearList}}"
+          value="{{earlyYearIdx}}"
+          range="{{earlyYearList}}"
         >
-          <view class="picker">{{yearList[selectYear]}}</view>
+          <view class="picker">{{earlyYearList[earlyYearIdx]}}</view>
           <view class="clac-right-icon"></view>
         </picker>
         <text>年</text>
@@ -131,10 +131,10 @@
           class="picker-item picker-mounth"
           bindchange="bindPickerChange"
           data-type="0"
-          value="{{selectYear}}"
-          range="{{yearList}}"
+          value="{{earlyMonthIdx}}"
+          range="{{earlyMonthList}}"
         >
-          <view class="picker">{{yearList[selectYear]}}</view>
+          <view class="picker">{{earlyMonthList[earlyMonthIdx]}}</view>
           <view class="clac-right-icon"></view>
         </picker>
         <text>月</text>
@@ -145,12 +145,12 @@
       <view class="calc-left">还款方式</view>
       <view class="calc-right">
         <radio-group bindchange="radioChange" class="calc-radio">
-          <label class="radio-label" wx:for="{{radioList}}" wx:key="index">
+          <label class="radio-label" wx:for="{{radioList2}}" wx:key="index">
             <view class="radio-cell">
               <radio
                 class="radio"
                 value="{{item.value}}"
-                checked="{{radioChecked === item.value ? true : false}}"
+                checked="{{radioChecked2 === item.value ? true : false}}"
                 color="#3072f6"
               />
             </view>
@@ -160,34 +160,36 @@
       </view>
     </view>
 
-    <view class="calc-item">
-      <view class="calc-left">提前还款金额</view>
-      <view class="calc-right clac-money">
-        <label class="r-input">
-          <input type="digit" bindchange="handleInput" value="{{inputMoney}}" />
-        </label>
-        <view class="r-text">万</view>
-      </view>
-    </view>
-
-    <view class="calc-item">
-      <view class="calc-left">还款方式</view>
-      <view class="calc-right">
-        <radio-group bindchange="radioChange" class="calc-radio">
-          <label class="radio-label" wx:for="{{radioList}}" wx:key="index">
-            <view class="radio-cell">
-              <radio
-                class="radio"
-                value="{{item.value}}"
-                checked="{{radioChecked === item.value ? true : false}}"
-                color="#3072f6"
-              />
-            </view>
-            <view class="radio-cell">{{item.name}}</view>
+    <block wx:if="{{radioChecked2 === '1'}}"
+      ><view class="calc-item">
+        <view class="calc-left">提前还款金额</view>
+        <view class="calc-right clac-money">
+          <label class="r-input">
+            <input type="digit" bindchange="handleInput" value="{{inputMoney}}" />
           </label>
-        </radio-group>
+          <view class="r-text">万</view>
+        </view>
       </view>
-    </view>
+
+      <view class="calc-item">
+        <view class="calc-left">还款方式</view>
+        <view class="calc-right">
+          <radio-group bindchange="radioChange" class="calc-radio">
+            <label class="radio-label" wx:for="{{radioList}}" wx:key="index">
+              <view class="radio-cell">
+                <radio
+                  class="radio"
+                  value="{{item.value}}"
+                  checked="{{radioChecked === item.value ? true : false}}"
+                  color="#3072f6"
+                />
+              </view>
+              <view class="radio-cell">{{item.name}}</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+    </block>
   </view>
 
   <view class="calc-btn">

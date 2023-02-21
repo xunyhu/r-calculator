@@ -9,7 +9,10 @@
   display: flex;
   align-items: center;
 }
-
+input {
+  height: 80rpx;
+  line-height: 80rpx;
+}
 .calc-left {
   font-weight: 700;
   width: 190rpx;
@@ -76,6 +79,7 @@
   text-align: center;
   height: 55rpx;
   line-height: 55rpx;
+  padding-right: 15rpx;
 }
 .picker-item .clac-right-icon {
   width: 15rpx;

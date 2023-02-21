@@ -5,7 +5,8 @@
     "pages/calculator/result",
     "pages/logs/logs",
     "pages/Interest/Interest",
-    "pages/Uiframe/Uiframe"
+    "pages/Uiframe/Uiframe",
+    "pages/early_repay/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

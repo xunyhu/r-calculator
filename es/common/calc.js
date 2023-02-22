@@ -12,7 +12,8 @@ const averageInterest = (loan_money, loan_lpy, loan_year, early_m = 0) => {
   const allMonth = loan_year * 12 - Number(early_m);
   const month_j =
     allMoney *
-    ((monthly * Math.pow(1 + monthly, allMonth)) / (Math.pow(1 + monthly, allMonth) - 1));
+    ((monthly * Math.pow(1 + monthly, allMonth)) /
+      (Math.pow(1 + monthly, allMonth) - 1));
   // console.log("月供金额：", month_j);
   const allInterest = month_j * allMonth - allMoney;
 
@@ -96,6 +97,7 @@ const averagePrincipal = (loan_money, loan_lpy, loan_year, early_m = 0) => {
     allInterest: allLx, //总利息
     allMoney,
     month_j: arrList[0].month_j,
+    monthly,
   };
 };
 
@@ -103,11 +105,11 @@ const averagePrincipal = (loan_money, loan_lpy, loan_year, early_m = 0) => {
  * 格式化金额展示
  * @param {string} num
  */
-const formatNum = num => {
+const formatNum = (num) => {
   num = Number(num);
   // console.log(num);
   const unit = 1000,
-    unitStr = ',000';
+    unitStr = ",000";
   let res = num / unit;
   if (res === 0 || res === 1) {
     return res + unitStr;
@@ -115,14 +117,18 @@ const formatNum = num => {
     if (res % 1 === 0) {
       res = formatNum(res) + unitStr;
     } else {
-      res = formatNum(parseInt(res)) + ',' + (res - parseInt(res)).toFixed(3).split('.')[1];
+      res =
+        formatNum(parseInt(res)) +
+        "," +
+        (res - parseInt(res)).toFixed(3).split(".")[1];
     }
     return res;
   } else if (res > 1) {
     if (res % 1 === 0) {
       res = res + unitStr;
     } else {
-      res = parseInt(res) + ',' + (res - parseInt(res)).toFixed(3).split('.')[1];
+      res =
+        parseInt(res) + "," + (res - parseInt(res)).toFixed(3).split(".")[1];
     }
     return res;
   } else {

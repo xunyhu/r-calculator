@@ -1,0 +1,26 @@
+/* pages/early_repay/result.wxss */
+@import './index.wxss';
+
+.calc-result {
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 24rpx;
+  font-weight: 500;
+  font-size: 32rpx;
+  //   border-bottom: 1rpx solid #eee;
+}
+
+.t-result {
+  padding-right: 50rpx;
+  text-align: right;
+}
+
+.calc-left {
+  width: 260rpx;
+}
+
+.r-tips {
+  position: absolute;
+  right: 0;
+  font-size: 28rpx;
+}

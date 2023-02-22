@@ -10,15 +10,23 @@
                     "scene": null
                 },
                 {
-                    "name": "pages/calculator/result",
-                    "pathName": "pages/calculator/result",
+                    "name": "",
+                    "pathName": "pages/early_repay/index",
                     "query": "",
+                    "launchMode": "default",
                     "scene": null
                 },
                 {
                     "name": "",
-                    "pathName": "pages/early_repay/index",
-                    "query": "",
+                    "pathName": "pages/calculator/result",
+                    "query": "inputMoney=174&year=30&lpr=5.05",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/early_repay/result",
+                    "query": "m=174&l=5.05&y=30&am=25&dtype=1&etype=1&emoney=30&edtype=0&",
                     "launchMode": "default",
                     "scene": null
                 }

@@ -3,7 +3,7 @@
     <view class="calc-item">
       <view class="calc-left">原贷款方式</view>
       <view class="calc-right">
-        <radio-group bindchange="radioChange" class="calc-radio">
+        <radio-group bindchange="radioChange" data-type="1" class="calc-radio">
           <label class="radio-label" wx:for="{{radioList}}" wx:key="index">
             <view class="radio-cell">
               <radio
@@ -79,7 +79,7 @@
           value="{{selectYear}}"
           range="{{yearList}}"
         >
-          <view class="picker">{{yearList[selectYear]}} 年</view>
+          <view class="picker">{{dkYear}} 年</view>
         </picker>
         <view class="clac-right-icon"></view>
       </view>
@@ -91,22 +91,22 @@
         <picker
           class="picker-item"
           bindchange="bindPickerChange"
-          data-type="0"
-          value="{{fristYearIdx}}"
+          data-type="1"
+          value="{{fristYear}}"
           range="{{earlyYearList}}"
         >
-          <view class="picker">{{earlyYearList[fristYearIdx]}}</view>
+          <view class="picker">{{fristYear}}</view>
           <view class="clac-right-icon"></view>
         </picker>
         <text>年</text>
         <picker
           class="picker-item picker-mounth"
           bindchange="bindPickerChange"
-          data-type="0"
-          value="{{fristMonthIdx}}"
+          data-type="2"
+          value="{{fristMonth}}"
           range="{{earlyMonthList}}"
         >
-          <view class="picker">{{earlyMonthList[fristMonthIdx]}}</view>
+          <view class="picker">{{fristMonth}}</view>
           <view class="clac-right-icon"></view>
         </picker>
         <text>月</text>
@@ -119,22 +119,22 @@
         <picker
           class="picker-item"
           bindchange="bindPickerChange"
-          data-type="0"
-          value="{{earlyYearIdx}}"
+          data-type="3"
+          value="{{earlyYear}}"
           range="{{earlyYearList}}"
         >
-          <view class="picker">{{earlyYearList[earlyYearIdx]}}</view>
+          <view class="picker">{{earlyYear}}</view>
           <view class="clac-right-icon"></view>
         </picker>
         <text>年</text>
         <picker
           class="picker-item picker-mounth"
           bindchange="bindPickerChange"
-          data-type="0"
-          value="{{earlyMonthIdx}}"
+          data-type="4"
+          value="{{earlyMonth}}"
           range="{{earlyMonthList}}"
         >
-          <view class="picker">{{earlyMonthList[earlyMonthIdx]}}</view>
+          <view class="picker">{{earlyMonth}}</view>
           <view class="clac-right-icon"></view>
         </picker>
         <text>月</text>
@@ -144,7 +144,7 @@
     <view class="calc-item">
       <view class="calc-left">还款方式</view>
       <view class="calc-right">
-        <radio-group bindchange="radioChange" class="calc-radio">
+        <radio-group bindchange="radioChange" data-type="2" class="calc-radio">
           <label class="radio-label" wx:for="{{radioList2}}" wx:key="index">
             <view class="radio-cell">
               <radio
@@ -160,12 +160,17 @@
       </view>
     </view>
 
-    <block wx:if="{{radioChecked2 === '1'}}"
+    <block wx:if="{{radioChecked2 === 1}}"
       ><view class="calc-item">
         <view class="calc-left">提前还款金额</view>
         <view class="calc-right clac-money">
           <label class="r-input">
-            <input type="digit" bindchange="handleInput" value="{{inputMoney}}" />
+            <input
+              type="digit"
+              bindchange="handleInput"
+              data-type="early"
+              value="{{inputMoney2}}"
+            />
           </label>
           <view class="r-text">万</view>
         </view>
@@ -175,12 +180,12 @@
         <view class="calc-left">还款方式</view>
         <view class="calc-right">
           <radio-group bindchange="radioChange" class="calc-radio">
-            <label class="radio-label" wx:for="{{radioList}}" wx:key="index">
+            <label class="radio-label" wx:for="{{radioList3}}" wx:key="index">
               <view class="radio-cell">
                 <radio
                   class="radio"
                   value="{{item.value}}"
-                  checked="{{radioChecked === item.value ? true : false}}"
+                  checked="{{radioChecked3 === item.value ? true : false}}"
                   color="#3072f6"
                 />
               </view>

@@ -59,19 +59,18 @@
         <view wx:if="{{month_dec}}" class="r-tips">每月递减{{month_dec}}</view>
       </view>
     </view>
-    <block wx:if="{{earlyDay}}">
+    <block wx:if="{{planDay}}">
       <view class="calc-item">
         <view class="calc-left">原来最后还款期</view>
         <view class="calc-right clac-money">
-          <view class="t-result">{{nowMounthPay}}</view>
-          <view class="r-text">元</view>
+          <view class="t-result t-day">{{planDay}}</view>
+          <!-- <view class="r-text">元</view> -->
         </view>
       </view>
       <view class="calc-item">
         <view class="calc-left">新的最后还款期</view>
         <view class="calc-right clac-money">
-          <view class="t-result">{{nowMounthPay}}</view>
-          <view class="r-text">元</view>
+          <view class="t-result t-day">{{earlyDay}}</view>
         </view>
       </view>
     </block>

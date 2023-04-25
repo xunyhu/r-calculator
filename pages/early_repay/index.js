@@ -128,7 +128,7 @@ Page({
       (+earlyYear - +fristYear) * 12 + +earlyMonth - +fristMonth;
     let params = `?m=${inputMoney}&l=${lpr}&y=${dkYear}&am=${alreadyMonth}&dtype=${radioChecked}`;
     if (radioChecked2 === 1) {
-      params = `${params}&etype=${radioChecked2}&emoney=${inputMoney2}&edtype=${radioChecked3}`;
+      params = `${params}&etype=${radioChecked2}&emoney=${inputMoney2}&edtype=${radioChecked3}&fy=${fristYear}&fm=${fristMonth}`;
     }
     wx.navigateTo({
       url: `/pages/early_repay/result${params}`,

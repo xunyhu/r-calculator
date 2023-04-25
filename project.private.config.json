@@ -32,5 +32,9 @@
                 }
             ]
         }
+    },
+    "projectname": "r-calculator",
+    "setting": {
+        "compileHotReLoad": true
     }
 }

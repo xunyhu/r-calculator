@@ -29,6 +29,13 @@
                     "query": "m=174&l=5.05&y=30&am=25&dtype=0&etype=1&emoney=30&edtype=1&fy=2021&fm=1",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/early_repay/result",
+                    "query": "m=174&l=5.05&y=30&am=27&dtype=0",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

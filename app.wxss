@@ -8,4 +8,8 @@
   /* padding: 200rpx 0; */
   padding: 20rpx 48rpx;
   box-sizing: border-box;
-} 
+}
+
+.bold {
+  font-weight: bold;
+}

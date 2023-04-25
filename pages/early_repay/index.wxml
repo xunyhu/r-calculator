@@ -29,7 +29,7 @@
       </view>
     </view>
 
-    <view class="calc-item">
+    <!-- <view class="calc-item">
       <view class="calc-left">利率方式</view>
       <view class="calc-right clac-times">
         <picker
@@ -42,7 +42,7 @@
         </picker>
         <view class="clac-right-icon"></view>
       </view>
-    </view>
+    </view> -->
 
     <view class="calc-item" wx:if="{{ selectM === 0 }}">
       <view class="calc-left">商贷利率</view>
@@ -92,7 +92,7 @@
           class="picker-item"
           bindchange="bindPickerChange"
           data-type="1"
-          value="{{fristYear}}"
+          value="{{fristYearIdx}}"
           range="{{earlyYearList}}"
         >
           <view class="picker">{{fristYear}}</view>
@@ -103,7 +103,7 @@
           class="picker-item picker-mounth"
           bindchange="bindPickerChange"
           data-type="2"
-          value="{{fristMonth}}"
+          value="{{fristMonthIdx}}"
           range="{{earlyMonthList}}"
         >
           <view class="picker">{{fristMonth}}</view>
@@ -120,7 +120,7 @@
           class="picker-item"
           bindchange="bindPickerChange"
           data-type="3"
-          value="{{earlyYear}}"
+          value="{{earlyYearIdx}}"
           range="{{earlyYearList}}"
         >
           <view class="picker">{{earlyYear}}</view>
@@ -131,7 +131,7 @@
           class="picker-item picker-mounth"
           bindchange="bindPickerChange"
           data-type="4"
-          value="{{earlyMonth}}"
+          value="{{earlyMonthIdx}}"
           range="{{earlyMonthList}}"
         >
           <view class="picker">{{earlyMonth}}</view>
@@ -142,7 +142,7 @@
     </view>
 
     <view class="calc-item">
-      <view class="calc-left">还款方式</view>
+      <view class="calc-left">提前结清方式</view>
       <view class="calc-right">
         <radio-group bindchange="radioChange" data-type="2" class="calc-radio">
           <label class="radio-label" wx:for="{{radioList2}}" wx:key="index">

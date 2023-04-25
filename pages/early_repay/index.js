@@ -31,6 +31,12 @@ const INTEREST_LIST = [
 const yearArr = Array.from(new Array(70).keys()).map((item) => item + 2000);
 const monthArr = Array.from(new Array(12).keys()).map((item) => item + 1);
 
+const dkYearIdx = 0;
+const nowYear = new Date().getFullYear();
+const nowMonth = new Date().getMonth() + 1;
+const fristIndex = yearArr.findIndex((item) => item === 2021);
+const earlyYidx = yearArr.findIndex((item) => item === nowYear);
+const earlyMidx = monthArr.findIndex((item) => item === nowMonth);
 Page({
   data: {
     radioList: [
@@ -54,7 +60,7 @@ Page({
         name: "部分结清",
       },
     ],
-    radioChecked2: 1,
+    radioChecked2: 0, //提前还款方式
     radioList3: [
       {
         value: 0,
@@ -67,34 +73,27 @@ Page({
     ],
     radioChecked3: 0,
     yearList: es6Arr,
-    selectYear: 0,
-    dkYear: es6Arr[0],
+    selectYear: String(dkYearIdx),
+    dkYear: es6Arr[dkYearIdx],
     moneyList: TYPE_LIST.slice(0, 2),
     selectM: 1, //利率方式
     interestList: INTEREST_LIST,
     selectInt: 4,
     lpr: "5.05",
     earlyYearList: yearArr,
-    fristYear: yearArr[0],
-    earlyYear: yearArr[0],
+    fristYearIdx: String(fristIndex),
+    fristYear: yearArr[fristIndex],
+    earlyYearIdx: String(earlyYidx),
+    earlyYear: yearArr[earlyYidx],
     earlyMonthList: monthArr,
-    fristMonth: monthArr[0],
-    earlyMonth: monthArr[0],
+    fristMonthIdx: "0",
+    fristMonth: monthArr[0], //首次还款时间
+    earlyMonthIdx: String(earlyMidx),
+    earlyMonth: monthArr[earlyMidx],
     inputMoney: "174", //原贷款金额
     inputMoney2: "", //提前还贷金额
   },
-  onLoad() {
-    const nowYear = new Date().getFullYear();
-    const nowMonth = new Date().getMonth() + 1;
-    const fristIndex = yearArr.findIndex((item) => item === 2021);
-    const earlyYidx = yearArr.findIndex((item) => item === nowYear);
-    const earlyMidx = monthArr.findIndex((item) => item === nowMonth);
-    this.setData({
-      fristYear: yearArr[fristIndex],
-      earlyYear: yearArr[earlyYidx],
-      earlyMonth: monthArr[earlyMidx],
-    });
-  },
+  onLoad() {},
   /** 点击结算 */
   handleCalc() {
     const {
@@ -183,26 +182,31 @@ Page({
       case "0":
         this.setData({
           dkYear: yearList[value],
+          selectYear: value,
         });
         break;
       case "1":
         this.setData({
           fristYear: earlyYearList[value],
+          fristYearIdx: value,
         });
         break;
       case "2":
         this.setData({
           fristMonth: earlyMonthList[value],
+          fristMonthIdx: value,
         });
         break;
       case "3":
         this.setData({
           earlyYear: earlyYearList[value],
+          earlyYearIdx: value,
         });
         break;
       case "4":
         this.setData({
           earlyMonth: earlyMonthList[value],
+          earlyMonthIdx: value,
         });
         break;
       default:

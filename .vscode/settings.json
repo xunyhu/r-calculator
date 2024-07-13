@@ -4,5 +4,11 @@
   "minapp-vscode.wxmlFormatter": "prettier",
   "minapp-vscode.prettier": {
     "parser": "html"
+  },
+  "files.associations": {
+    "*.wxss": "css",
+    "*.wxs": "javascript",
+    "*.cjson": "jsonc",
+    "*.wxml": "html"
   }
 }

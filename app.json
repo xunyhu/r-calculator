@@ -7,7 +7,8 @@
     "pages/Interest/Interest",
     "pages/Uiframe/Uiframe",
     "pages/early_repay/index",
-    "pages/early_repay/result"
+    "pages/early_repay/result",
+    "pages/voice/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

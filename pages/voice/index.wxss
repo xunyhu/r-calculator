@@ -1,0 +1,4 @@
+.audio-item {
+  margin: 20rpx auto;
+  padding-left: 70rpx;
+}

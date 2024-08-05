@@ -10,6 +10,11 @@ Page({
     canIUseGetUserProfile: wx.getUserProfile,
     iconList: [
       {
+        type: "abc",
+        imgUrl: "../../assets/abc.png",
+        name: "公共英语",
+      },
+      {
         type: "calc",
         imgUrl: "../../assets/calc-icon.png",
         name: "贷款计算",
@@ -50,6 +55,9 @@ Page({
   handleClick({ currentTarget: { dataset } }) {
     let url = "";
     switch (dataset.type) {
+      case "abc":
+        url = "/pages/voice/index";
+        break;
       case "calc":
         url = "/pages/calculator/calculator";
         break;

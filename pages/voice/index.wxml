@@ -1,0 +1,13 @@
+<!-- audio.wxml -->
+<view class="audio-wrap">
+  <view class="audio-item" wx:for="{{list}}" wx:key="index">
+    <audio
+      poster="{{item.poster}}"
+      name="{{item.name}}"
+      author="{{item.author}}"
+      src="{{item.src}}"
+      controls
+      loop
+    ></audio>
+  </view>
+</view>

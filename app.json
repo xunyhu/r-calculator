@@ -13,7 +13,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "R的计算器",
+    "navigationBarTitleText": "R",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

@@ -4,6 +4,13 @@
         "miniprogram": {
             "list": [
                 {
+                    "name": "",
+                    "pathName": "pages/voice/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
                     "name": "pages/calculator/calculator",
                     "pathName": "pages/calculator/calculator",
                     "query": "",

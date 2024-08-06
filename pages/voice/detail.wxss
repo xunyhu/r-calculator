@@ -19,9 +19,23 @@
   margin: 20rpx 0;
 }
 
-.content-item-img image {
+.content-item-img {
+  position: relative;
+}
+
+.content-item-img .poster {
   width: 130rpx;
   height: 130rpx;
+  display: block;
+}
+
+.content-item-img .play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50rpx;
+  height: 50rpx;
   display: block;
 }
 

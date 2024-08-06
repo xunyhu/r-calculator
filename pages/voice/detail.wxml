@@ -1,0 +1,18 @@
+<view class="audio-wrap">
+  <view class="audio-item" wx:if="{{ item.src }}">
+    <view class="content-item">
+      <view class="content-item-img">
+        <image class="poster" src="{{ item.poster }}"></image>
+        <image
+          class="play"
+          src="{{ !isPlay ? palyIcon : pauseIcon }}"
+          bindtap="onClick"
+        ></image>
+      </view>
+      <view class="content-item-title">
+        <view class="title">{{ item.name }}</view>
+        <view class="sub-title">{{ item.author }}</view>
+      </view>
+    </view>
+  </view>
+</view>

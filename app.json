@@ -8,7 +8,8 @@
     "pages/Uiframe/Uiframe",
     "pages/early_repay/index",
     "pages/early_repay/result",
-    "pages/voice/index"
+    "pages/voice/index",
+    "pages/voice/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

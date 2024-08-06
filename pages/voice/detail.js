@@ -14,6 +14,7 @@ Page({
         });
         this.innerAudioContext.src = decodeURIComponent(src);
         const { duration } = this.innerAudioContext;
+        console.log("this.innerAudioContext", this.innerAudioContext);
         console.log("duration", duration);
       }
     } catch (error) {
@@ -27,7 +28,7 @@ Page({
     palyIcon: "../../assets/play.png",
     pauseIcon: "../../assets/pause.png",
   },
-  onClick() {
+  onClick(e) {
     if (this.data.isPlay) {
       this.innerAudioContext.pause(); // 暂停
     } else {

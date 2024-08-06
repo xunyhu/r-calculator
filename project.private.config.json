@@ -5,20 +5,6 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "pages/voice/detail",
-                    "query": "item=%7B%22poster%22%3A%22https%3A%2F%2Fimg11.360buyimg.com%2Fn1%2Fjfs%2Ft1%2F87024%2F28%2F24837%2F408980%2F6246b6faE67db59be%2Fb3e968aeccde669b.jpg%22%2C%22name%22%3A%22Unit-01%22%2C%22author%22%3A%22Greeting%20and%20Introduction%22%2C%22src%22%3A%22https%253A%252F%252Fhep-urc-media.hep.com.cn%252Faudio%252F44924cce6ac3415f89287f312e9cf8fd.mp3%253FExpires%253D1724574881%2526OSSAccessKeyId%253DLTAI5tHb6LUzL2mw4VudhmfK%2526Signature%253DQTfjU4%25252B%25252Fvn3s8oTIJNpQX8R7%25252BFA%25253D%22%7D",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/voice/detail",
-                    "query": "item=%7B%22poster%22%3A%22https%3A%2F%2Fimg11.360buyimg.com%2Fn1%2Fjfs%2Ft1%2F87024%2F28%2F24837%2F408980%2F6246b6faE67db59be%2Fb3e968aeccde669b.jpg%22%2C%22name%22%3A%22Unit-01%22%2C%22author%22%3A%22Greeting%20and%20Introduction%22%2C%22src%22%3A%22https%253A%252F%252Fhep-urc-media.hep.com.cn%252Faudio%252F44924cce6ac3415f89287f312e9cf8fd.mp3%253FExpires%253D1724574881%2526OSSAccessKeyId%253DLTAI5tHb6LUzL2mw4VudhmfK%2526Signature%253DQTfjU4%25252B%25252Fvn3s8oTIJNpQX8R7%25252BFA%25253D%22%7D",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
                     "pathName": "pages/voice/index",
                     "query": "",
                     "launchMode": "default",

@@ -1,12 +1,17 @@
 <view class="audio-wrap">
-  <view class="audio-item" wx:for="{{list}}" wx:key="index">
-    <view class="content-item" bindtap="onClick" data-item="{{item}}">
+  <view class="audio-item" wx:for="{{ list }}" wx:key="index">
+    <view
+      class="content-item"
+      bindtap="onClick"
+      data-item="{{ item }}"
+      data-index="{{ index }}"
+    >
       <view class="content-item-img">
-        <image src="{{item.poster}}"></image>
+        <image src="{{ item.poster }}"></image>
       </view>
       <view class="content-item-title">
-        <view class="title">{{item.name}}</view>
-        <view class="sub-title">{{item.author}}</view>
+        <view class="title">{{ item.name }}</view>
+        <view class="sub-title">{{ item.author }}</view>
       </view>
     </view>
   </view>

@@ -13,10 +13,10 @@ Page({
         appid: "wx307a52ca028d3c07",
         name: "iView Weapp",
       },
-      {
-        appid: "wx7e6132bf84d4cb61",
-        name: "ZanUI Weapp",
-      },
+      // {
+      //   appid: "wx7e6132bf84d4cb61",
+      //   name: "ZanUI Weapp",
+      // },
       {
         appid: "wxf034a0b7cc38d24d",
         name: "Wux Weapp",

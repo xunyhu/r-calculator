@@ -13,10 +13,13 @@ Page({
           useWebAudioImplement: false,
         });
         this.innerAudioContext.src = decodeURIComponent(src);
-        const { duration } = this.innerAudioContext;
-        console.log("this.innerAudioContext", this.innerAudioContext);
-        console.log("duration", duration);
+        this.innerAudioContext.onCanplay((res) => {
+          console.log("res", this.innerAudioContext);
+        });
       }
+      wx.setNavigationBarTitle({
+        title: info.author || "",
+      });
     } catch (error) {
       console.error(error);
     }

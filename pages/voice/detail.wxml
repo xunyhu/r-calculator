@@ -5,71 +5,31 @@
         <image class="poster" src="{{ item.poster }}"></image>
         <image
           class="play"
-          src="{{ !isPlay ? palyIcon : pauseIcon }}"
-          bindtap="onClick"
+          wx:if="{{!isOpen}}"
+          src="{{ palyIcon }}"
+          bindtap="listenerButtonPlay"
         ></image>
+        <image
+        class="play"
+        wx:if="{{isOpen}}"
+        src="{{ pauseIcon }}"
+        bindtap="listenerButtonPause"
+      ></image>
       </view>
       <view class="content-item-title">
         <view class="title">{{ item.name }}</view>
         <view class="sub-title">{{ item.author }}</view>
       </view>
     </view>
+    <view class='slid'>
+      <slider bindchange="sliderChange" block-size="12px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4c9dee" />
+      <view>
+        <text class='times'>{{starttime}}</text>
+        <!-- 进度时长 -->
+        <!-- <text class='times'>{{duration}}</text> -->
+        <!-- 总时长 -->
+      </view>
+    </view>
   </view>
-  <view class="article">
-    ## Dialogue/Monologue 1 Melanie Sanders brings out her photo album to show
-    her new Egyptian friend, Layth, pictures of her family. Melanie
-    拿出了她的相册，想给她认识的新埃及朋友 Layth 展示她家人的照片。 Melanie: Oh,
-    Layth, I'm sure you recognize Grandmother in this picture? She's in the blue
-    dress. 梅兰妮 (Méi Lán Ní) ：哦，莱思 (Lái
-    sī)，这张照片你肯定认得出来吧？穿蓝色衣服的就是我祖母。 Layth: Sure, and
-    who's that holding the hand of a boy?
-    莱思：嗯，没错。那个牵着小男孩的人是谁？ Melanie: That's my older brother,
-    Lester, with my nephew, Nicky, when he was two years old. My sister-in-law,
-    Dorothy, is next to him but she's not smiling because she was angry with
-    Lester. Lester always leaves her and goes out of town on business.
-    梅兰妮：那是我哥哥莱斯特 (Lài sī tè)，还有我两岁大的侄子尼基 (Ní
-    Jī)。他旁边的是我嫂子多萝西 (Duō Luó
-    Xī)，但她看起来并不开心，因为她生我哥哥的气。莱斯特总是丢下她，外出谈生意。
-    Layth: I like this picture. It's so funny! 莱思：我喜欢这张照片，太有趣了！
-    Melanie: Oh, it's my niece, Nicole, when she was thirteen, I remeber. She
-    was upset because Chris took her picture while she was curling her hair.
-    You'll probably find this one funny, too. This is my great aunt, Anna
-    Lawrence, Grandma's sister. Her hat is really out of date.
-    梅兰妮：哦，这是我侄女妮可 (Ní Kě) 十三岁的时候。当时克里斯 (Kè Lǐ sī)
-    偷拍了她烫头发的照片，她很生气，所以你可能会觉得这张照片也挺有趣。这位是安娜·劳伦斯
-    (Ān Nà Láo Lín sī)，我祖母的姐姐，我姑奶奶。她的帽子真的过时了。 Layth:
-    Who's this skinny man? 莱思：这个瘦男人是谁？ Malanie: That's my great
-    uncle, George Lawrence, Anna Lawrence's husband. You can tell they lived
-    during the Depression. He's wearing boots because shoes were out of stock.
-    梅兰妮：那是我的叔叔，乔治·劳伦斯 (Qiáo Zhì Láo Lín
-    sī)，安娜·劳伦斯的丈夫。他们肯定生活在大萧条时期，你看他穿的靴子，因为当时鞋子脱销了。
-    Layth: I can see they're definitely from the old generation.
-    莱思：我看得出他们绝对是老一代的人。 Malanie: Here's a more recent picture
-    showing all three generations together. Here are Grandpa and Grandma Murphy,
-    my mother's parents. And here are Mom and Dad, and here's my older brother,
-    Lester, again with his wife and three of their children: Nicolas, Ryan, and
-    Laura. Ryan really has an outgoing personality. See how he's smiling?
-    梅兰妮：这是一张较新的照片，展示了三代同堂。这是我外公外婆，墨菲爷爷奶奶 (Mò
-    Fèi Yeye
-    Nainai)。还有我爸爸妈妈，以及我哥哥莱斯特和他妻子和三个孩子：尼古拉斯 (Ní Gǔ
-    Lā sī)、瑞恩 (Ruì Yèn) 和劳拉 (Láo Lā)。瑞恩性格真的外向，你看他笑得多开心？
-    Layth: Yes. He looks like he's fun to be with. You know what? I can see a
-    strong family resemblance. Oh, who's this?
-    莱思：是的，他看起来很好相处。你知道吗？我能看到强烈的家族相似性。哦，这是谁？
-    Melanie: That's Curtis Lane, Lester's brother-in-law, his wife's brother.
-    You ought to meet this man. He really knows how to bring a person out. I
-    wish I had his social skills. 梅兰妮：那是柯蒂斯·莱恩 (Kē dì sī · lái
-    èn)，莱斯特的连襟，他妻子的弟弟。你应该认识他，他很擅长调动气氛，我希望我也有他的社交能力。
-    Layth: Who's this lady with Curtis Lane?
-    莱思：和柯蒂斯·莱恩在一起的这位女士是谁？ Melanie: That's his and Dorothy's
-    mother, Lester's mother-in-law, Mrs.Lane.
-    梅兰妮：那是他和多萝西的母亲，莱斯特的岳母，莱恩夫人 (Lái èn Fū Rén)。
-    Layth: Dose Mrs.Lane live with Lester and Dorothy?
-    莱思：莱恩夫人和莱斯特和多萝西住在一起吗？ Melanie: Oh, no! Lester always
-    said he would never live with his in-laws. Well, Layth, since we've looked
-    at all the pictures, would you like to go out and stretch your legs?
-    梅兰妮：哦，不！莱斯特总是说他永远不会和岳父母住在一起。好了，莱思，既然我们看完了所有的照片，你想出去走动一下吗？
-    Layth: Okay! That's a good idea. But I enjoyed looking at the pictures.
-    莱思：好的！这主意不错。但我还是很喜欢看这些照片。
-  </view>
+  <view class="article"></view>
 </view>

@@ -39,11 +39,11 @@ Page({
       //   imgUrl: "../../assets/calc-icon.png",
       //   name: "奖金计算",
       // },
-      {
-        type: "ui",
-        imgUrl: "../../assets/ui-icon.png",
-        name: "UI框架",
-      },
+      // {
+      //   type: "ui",
+      //   imgUrl: "../../assets/ui-icon.png",
+      //   name: "UI框架",
+      // },
     ],
   },
   //事件处理函数

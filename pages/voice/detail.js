@@ -8,7 +8,7 @@ Page({
       this.setData({
         item: info,
       });
-      const { src } = info;
+      // const { src } = info;
       //https://developers.weixin.qq.com/miniprogram/dev/api/media/audio/InnerAudioContext.html
       // if (!this.innerAudioContext) {
       //   this.innerAudioContext = wx.createInnerAudioContext({
@@ -61,19 +61,20 @@ Page({
   },
   listenerButtonPlay: function () {
     var that = this;
+    const {src, name, poster, author} = this.data.item;
     if (!this.data.isPlay) {
       // ！！！ ios 播放时必须加title 不然会报错导致音乐不播放
       // 这块的值需要自己替换哦
-      bgMusic.title = "我是音频";
-      bgMusic.epname = "我是音频";
-      bgMusic.src = decodeURIComponent(this.data.item.src);
-      console.log("bgMusic", bgMusic);
+      bgMusic.title = name;
+      bgMusic.epname = author;
+      bgMusic.src = decodeURIComponent(src);
+      bgMusic.coverImgUrl = poster;
     }
 
     bgMusic.onTimeUpdate(() => {
       //bgMusic.duration总时长  bgMusic.currentTime当前进度
       console.log("bgMusic", bgMusic);
-      var duration = bgMusic.duration;
+      var duration = (bgMusic.duration / 60).toFixed(2);
       var offset = bgMusic.currentTime;
       var currentTime = parseInt(bgMusic.currentTime);
       var min = parseInt(currentTime / 60);

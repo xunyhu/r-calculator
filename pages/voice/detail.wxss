@@ -22,12 +22,15 @@
   flex-direction: column;
 }
 
-.content-item {
-  display: flex;
-  padding: 10rpx;
+.content-wrap {
   border: 1rpx solid #ddd;
   border-radius: 8rpx;
-  margin: 20rpx 0;
+  padding: 20rpx;
+}
+
+.content-item {
+  display: flex;
+  margin-bottom: 20rpx;
 }
 
 .content-item-img {
@@ -89,7 +92,6 @@
 }
 
 slider {
-  width: 520rpx;
   margin: 0;
   margin-left: 35rpx;
 }

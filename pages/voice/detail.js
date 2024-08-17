@@ -61,7 +61,7 @@ Page({
   },
   listenerButtonPlay: function () {
     var that = this;
-    const {src, name, poster, author} = this.data.item;
+    const { src, name, poster, author } = this.data.item;
     if (!this.data.isPlay) {
       // ！！！ ios 播放时必须加title 不然会报错导致音乐不播放
       // 这块的值需要自己替换哦
@@ -73,7 +73,7 @@ Page({
 
     bgMusic.onTimeUpdate(() => {
       //bgMusic.duration总时长  bgMusic.currentTime当前进度
-      console.log("bgMusic", bgMusic);
+      // console.log("bgMusic", bgMusic);
       var duration = (bgMusic.duration / 60).toFixed(2);
       var offset = bgMusic.currentTime;
       var currentTime = parseInt(bgMusic.currentTime);
